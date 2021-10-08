@@ -1,5 +1,11 @@
 {
-    "user": [
-        {"id": 1, "name": "Anna", "surname": "Nowak", "birthDate": "01.05.1996", "eyeColor": "green"}
-    ]
+  "user": [
+    {
+      "id": 1,
+      "firstName": "Anna",
+      "lastName": "Nowak",
+      "birthDate": "01.05.1996",
+      "eyeColor": "green"
+    }
+  ]
 }

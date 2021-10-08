@@ -1,28 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import './App.css';
-//import Form from './components/Form';
+
+function reducer(state, action){
+  switch (action.type) {
+    case "inputChange": {
+      const newValue = action.payload;
+      return newValue;
+    }
+    default: {
+  return {...state};
+  }
+  }
+  
+}
 
 function App() {
-  const [isloading, setIsLoading] = useState(true);
-  const [person, setPerson] = useState(null);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [birthDate, setBirthDate] = useState("");
-  const [eyeColor, setEyeColor] = useState("");
   const [personData, setPersonData] = useState({
-    id: "",
-    firstName: "",
-    lastName: "",
-    birthDate: "",
-    eyeColor: ""
+    id: '',
+    firstName: '',
+    lastName: '',
+    birthDate: '',
+    eyeColor: ''
   });
-
-  function fillDetails() {
-    setFirstName(person.name);
-    setLastName(person.surname);
-    setBirthDate(person.birthDate);
-    setEyeColor(person.eyeColor);
-  }
+  const [state, dispatch] = useReducer(reducer, personData);
+  const [isloading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch('http://localhost:3000/user')
@@ -31,17 +32,15 @@ function App() {
         console.log("GET response: ", response);
         return response.json();
       }
-
-      throw response;
     })
     .then(data => {
       console.log("data: ", data);
       if(data){
+        console.log("Person data before set: ", personData);
+        console.log("data to be set: ", data);
         setPersonData(data[0]);
-        setPerson(data[0]);
+        console.log("Person data set");
       }
-      console.log("person: ", person);
-      //fillDetails();
 
       console.log("Person data: ", personData);
     })
@@ -51,67 +50,73 @@ function App() {
     .finally(() => {
       setIsLoading(false);
     });
-
   },[])
 
   function handleSubmit(ev){
     ev.preventDefault();
-    console.log("submitting person: ", person);
+
+    console.log("submitting person data: ", personData);
+    console.log(Array(personData));
+    console.log(JSON.stringify(personData));
+
     const requestOptions = {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(person)
+      body: Array(JSON.stringify(personData))
     };
     fetch('http://localhost:3000/user', requestOptions)
     .then(response => {
       response.json();
       console.log("response: ", response);
-      console.log("person: ", person);
+      console.log("person: ", personData);
     });
-    
   }
 
   function handleChange(ev){
-    ev.preventDefault();
-    const value = ev.target.value;
+    //setPersonData({[ev.target.name]: ev.target.value,...personData});
+    ev.stopPropagation();
     console.log("change made in: " + ev.target.name + ". Value: " + ev.target.value);
-    setPersonData({[ev.target.name]: value, ...personData});
     console.log("Updated person data: ", personData);
+
+    const action = {
+      input: ev.target.name,
+      payload: ev.target.value,
+    }
+
+    dispatch(action);
+
   }
 
-
-  function Form(){
+  function PersonDataForm(){
     return (
-        <form onSubmit={handleSubmit}>
+        <div>
+          <form onSubmit={handleSubmit}>
             <label>
                 First Name:   
-                <input type="text" name="firstName" value={personData.firstName} onChange={handleChange}/>
+                <input key="firstName" type="text" name="firstName" value={personData.firstName} onChange={handleChange}/>
             </label><br />
             <label>
                 Last Name:   
-                <input type="text" name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
+                <input key="lastName" type="text" name="lastName" value={personData.lastName} onChange={handleChange}/>
             </label><br />
             <label>
                 Birth Date:    
-                <input type="text" name="birthDate" value={birthDate} onChange={(e) => setBirthDate(e.target.value)}/>
+                <input key="birthDate" type="text" name="birthDate" value={personData.birthDate} onChange={handleChange}/>
             </label><br />
             <label>
                 Eye Color:     
-                <input type="text" name="eyeColor" value={eyeColor} onChange={(e) => setEyeColor(e.target.value)}/>
+                <input key="eyeColor" type="text" name="eyeColor" value={personData.eyeColor} onChange={handleChange}/>
             </label><br />
             <input type="submit" value="submit"/>
-        </form>
+          </form>
+        </div>
     )
-}
-
-  function Body(){
-    return isloading ? <div>Loading...</div> : <Form />;
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <Body />
+        {isloading ? <div>Loading...</div> : <PersonDataForm />}
       </header>
     </div>
   );
