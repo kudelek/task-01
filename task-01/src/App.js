@@ -64,7 +64,7 @@ function App() {
       headers: { 'Content-Type': 'application/json' },
       body: Array(JSON.stringify(personData))
     };
-    fetch('http://localhost:3000/user', requestOptions)
+    fetch('http://localhost:3000/user/1', requestOptions)
     .then(response => {
       response.json();
       console.log("response: ", response);
