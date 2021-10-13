@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import './App.css';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function reducer(state, action){
   switch (action.type) {
@@ -73,51 +74,51 @@ function App() {
   }
 
   function handleChange(ev){
-    //setPersonData({[ev.target.name]: ev.target.value,...personData});
-    ev.stopPropagation();
+    console.log("person data before change: ", personData)
+    setPersonData({...personData, [ev.target.name]: ev.target.value});
     console.log("change made in: " + ev.target.name + ". Value: " + ev.target.value);
     console.log("Updated person data: ", personData);
 
-    const action = {
-      input: ev.target.name,
-      payload: ev.target.value,
-    }
+    // const action = {
+    //   input: ev.target.name,
+    //   payload: ev.target.value,
+    // }
 
-    dispatch(action);
+    // dispatch(action);
 
   }
 
   function PersonDataForm(){
     return (
-        <div>
-          <form onSubmit={handleSubmit}>
-            <label>
-                First Name:   
-                <input key="firstName" type="text" name="firstName" value={personData.firstName} onChange={handleChange}/>
-            </label><br />
-            <label>
-                Last Name:   
-                <input key="lastName" type="text" name="lastName" value={personData.lastName} onChange={handleChange}/>
-            </label><br />
-            <label>
-                Birth Date:    
-                <input key="birthDate" type="text" name="birthDate" value={personData.birthDate} onChange={handleChange}/>
-            </label><br />
-            <label>
-                Eye Color:     
-                <input key="eyeColor" type="text" name="eyeColor" value={personData.eyeColor} onChange={handleChange}/>
-            </label><br />
-            <input type="submit" value="submit"/>
-          </form>
-        </div>
+      <form onSubmit={handleSubmit}>
+        <label>
+            First Name:   
+            <input type="text" name="firstName" defaultValue={personData.firstName} onChange={handleChange}/>
+        </label><br />
+        <label>
+            Last Name:   
+            <input type="text" name="lastName" defaultValue={personData.lastName} onChange={handleChange}/>
+        </label><br />
+        <label>
+            Birth Date:    
+            <input type="text" name="birthDate" defaultValue={personData.birthDate} onChange={handleChange}/>
+        </label><br />
+        <label>
+            Eye Color:     
+            <input type="text" name="eyeColor" defaultValue={personData.eyeColor} onChange={handleChange}/>
+        </label><br />
+        <input type="submit" value="submit"/>
+      </form>
     )
   }
 
   return (
     <div className="App">
-      <header className="App-header">
-        {isloading ? <div>Loading...</div> : <PersonDataForm />}
-      </header>
+      <ErrorBoundary>
+        <header className="App-header">
+          {isloading ? <div>Loading...</div> : <PersonDataForm />}
+        </header>
+      </ErrorBoundary>
     </div>
   );
 }
