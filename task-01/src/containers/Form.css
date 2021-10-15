@@ -1,0 +1,13 @@
+form {
+    width: 100%;
+}
+
+label {
+    width: auto;
+    margin-right: 10px;;
+}
+
+.fields {
+    display: flex;
+    text-align: left;
+}
