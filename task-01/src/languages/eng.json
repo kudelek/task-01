@@ -1,0 +1,7 @@
+{
+    "firstName": "First Name:",
+    "lastName": "Last Name:",
+    "birthDate": "Birth Date:",
+    "eyeColor": "Eye Color:",
+    "submit": "Submit"
+}

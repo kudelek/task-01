@@ -1,0 +1,7 @@
+{
+    "firstName": "Imię:",
+    "lastName": "Nazwisko:",
+    "birthDate": "Data urodzenia:",
+    "eyeColor": "Kolor oczu:",
+    "submit": "Wyślij"
+}

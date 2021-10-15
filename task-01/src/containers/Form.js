@@ -1,4 +1,5 @@
 import React, { useState, useReducer, useEffect } from "react";
+import { Text } from "../libs/language";
 import { reducer } from "../libs/reducer";
 import './Form.css';
 
@@ -65,10 +66,10 @@ export default function Form(){
             <form onSubmit={handleSubmit}>
                 <div className="fields">
                     <div className="labels">
-                        <label>First Name:</label><br />
-                        <label>Last Name:</label><br />
-                        <label>Birth Date:</label><br />
-                        <label>Eye Color:</label><br />
+                        <label><Text tid="firstName" /></label><br />
+                        <label><Text tid="lastName" /></label><br />
+                        <label><Text tid="birthDate" /></label><br />
+                        <label><Text tid="eyeColor" /></label><br />
                     </div>
                     <div className="inputs">
                         <input type="text" id="firstName" defaultValue={userData.firstName} onChange={handleChange}/><br />
@@ -77,7 +78,7 @@ export default function Form(){
                         <input type="text" id="eyeColor" defaultValue={userData.eyeColor} onChange={handleChange}/><br />
                     </div>
                 </div>
-                <input type="submit" value="submit"/><br />
+                <input type="submit" value={Text({tid: "submit"})}/><br />
                 <p>{}</p>
             </form>
                 <button onClick={() => console.log("userdata from click",userData)}>log userData</button>
