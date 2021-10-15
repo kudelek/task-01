@@ -3,7 +3,12 @@ import { reducer } from "../libs/reducer";
 import './Form.css';
 
 export default function Form(){
-  const [userData, dispatch] = useReducer(reducer, {});
+  const [userData, dispatch] = useReducer(reducer, {
+      firstName: "",
+      lastName: "",
+      birthDate: "",
+      eyeColor: ""
+  });
   const [isloading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -34,13 +39,12 @@ export default function Form(){
   function handleSubmit(ev){
     ev.preventDefault();
 
-    console.log(JSON.stringify(userData));
-
     const requestOptions = {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: Array(JSON.stringify(userData))
     };
+    
     fetch('http://localhost:3000/user/1', requestOptions)
     .then(response => {
       response.json();
@@ -54,7 +58,6 @@ export default function Form(){
       payload: {name: [ev.target.id], value: [ev.target.value]},
     }
     dispatch(action);
-
   }
   
     return ( isloading ? <div>Loading...</div> : (
