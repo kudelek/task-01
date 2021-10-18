@@ -62,7 +62,7 @@ export default function Form(){
   }
   
     return ( isloading ? <div>Loading...</div> : (
-        <div>
+        <div className="form">
             <form onSubmit={handleSubmit}>
                 <div className="fields">
                     <div className="labels">
@@ -78,10 +78,10 @@ export default function Form(){
                         <input type="text" id="eyeColor" defaultValue={userData.eyeColor} onChange={handleChange}/><br />
                     </div>
                 </div>
-                <input type="submit" value={Text({tid: "submit"})}/><br />
+                <input id="submit" type="submit" value={Text({tid: "submit"})}/><br />
                 <p>{}</p>
             </form>
-                <button onClick={() => console.log("userdata from click",userData)}>log userData</button>
+                <button id="loguserdata" onClick={() => console.log("userdata from click",userData)}>log userData</button>
         </div>
     )
     )
