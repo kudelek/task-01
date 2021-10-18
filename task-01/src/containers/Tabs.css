@@ -1,0 +1,20 @@
+.tabs {
+    display: flex;
+    flex: auto;
+    margin-left: 10vw;
+}
+
+.tab {
+    padding: 20px;
+    border-radius: 10%;
+    transition: 0.3s;
+}
+
+.tab:hover {
+    cursor: pointer;
+    background-color: rgb(50, 50, 58);
+}
+
+.tab.active {
+    background-color: rgb(62, 62, 75);
+}

@@ -3,7 +3,7 @@ import { Text } from "../libs/language";
 import { reducer } from "../libs/reducer";
 import './Form.css';
 
-export default function Form(){
+export default function Form(props){
   const [userData, dispatch] = useReducer(reducer, {
       firstName: "",
       lastName: "",
@@ -34,6 +34,7 @@ export default function Form(){
     })
     .finally(() => {
       setIsLoading(false);
+      document.getElementById("form").click();
     });
   }
 
@@ -60,31 +61,32 @@ export default function Form(){
     }
     dispatch(action);
   }
-  
-    return ( isloading ? <div>Loading...</div> : (
-        <div className="form">
-            <form onSubmit={handleSubmit}>
-                <div className="fields">
-                    <div className="labels">
-                        <label><Text tid="firstName" /></label><br />
-                        <label><Text tid="lastName" /></label><br />
-                        <label><Text tid="birthDate" /></label><br />
-                        <label><Text tid="eyeColor" /></label><br />
-                    </div>
-                    <div className="inputs">
-                        <input type="text" id="firstName" defaultValue={userData.firstName} onChange={handleChange}/><br />
-                        <input type="text" id="lastName" defaultValue={userData.lastName} onChange={handleChange}/><br />
-                        <input type="text" id="birthDate" defaultValue={userData.birthDate} onChange={handleChange}/><br />
-                        <input type="text" id="eyeColor" defaultValue={userData.eyeColor} onChange={handleChange}/><br />
-                    </div>
-                </div>
-                <input id="submit" type="submit" value={Text({tid: "submit"})}/><br />
-                <p>{}</p>
-            </form>
-                <button id="loguserdata" onClick={() => console.log("userdata from click",userData)}>log userData</button>
-        </div>
-    )
-    )
+
+  return ( isloading ? <div>Loading...</div> : (
+    <div {...props}>
+      <div className="form">
+        <form onSubmit={handleSubmit}>
+          <div className="fields">
+            <div className="labels">
+              <label><Text tid="firstName" /></label><br />
+              <label><Text tid="lastName" /></label><br />
+              <label><Text tid="birthDate" /></label><br />
+              <label><Text tid="eyeColor" /></label><br />
+            </div>
+            <div className="inputs">
+              <input type="text" id="firstName" defaultValue={userData.firstName} onChange={handleChange}/><br />
+              <input type="text" id="lastName" defaultValue={userData.lastName} onChange={handleChange}/><br />
+              <input type="text" id="birthDate" defaultValue={userData.birthDate} onChange={handleChange}/><br />
+              <input type="text" id="eyeColor" defaultValue={userData.eyeColor} onChange={handleChange}/><br />
+            </div>
+          </div>
+          <input id="submit" type="submit" value={Text({tid: "submit"})}/><br />
+          <p>{}</p>
+        </form>
+        <button id="loguserdata" onClick={() => console.log("userdata from click",userData)}>log userData</button>
+      </div>
+    </div>
+  ))
   
 
 

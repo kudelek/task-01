@@ -4,5 +4,7 @@
     "birthDate": "Data urodzenia:",
     "eyeColor": "Kolor oczu:",
     "submit": "Wyślij",
-    "language": "Język: "
+    "selectedlanguage": "Wybrano język: Polski",
+    "language": "Język: ",
+    "somecontent": "To jest jakaś zawartość. "
 }

@@ -1,17 +1,16 @@
 .navBar {
     width: 100%;
     padding: 0;
-    min-height: 10vh;
+    height: 10vh;
     position: relative;
+    display: flex;
+    align-items: baseline;
 }
 
-.nav {
-    color: white;
-    position: relative;
-    transform: translate(-3vw, 2vw);
-    float: right;
+.lang {
     display: flex;
     padding: 5px;
-    margin: 4px;
-    max-height: 5vh;
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
 }
