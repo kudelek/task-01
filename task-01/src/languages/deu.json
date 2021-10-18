@@ -3,5 +3,6 @@
     "lastName": "Nachname:",
     "birthDate": "Geburtsdatum:",
     "eyeColor": "Augenfarbe:",
-    "submit": "Senden"
+    "submit": "Senden",
+    "language": "Sprache: "
 }
