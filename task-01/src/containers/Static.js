@@ -12,7 +12,7 @@ function Static(props) {
     return (
         <div {...props}>
             <Text tid="selectedlanguage"/><br/><br/>
-            {Object.entries(arr).map(([id,text]) => <Text id={id} tid={text} />)}
+            {Object.entries(arr).map(([id,text]) => <Text key={id} id={id} tid={text} />)}
         </div>
     )
 }

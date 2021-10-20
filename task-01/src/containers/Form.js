@@ -80,7 +80,7 @@ export default function Form(props){
               <input type="text" id="eyeColor" defaultValue={userData.eyeColor} onChange={handleChange}/><br />
             </div>
           </div>
-          <input id="submit" type="submit" value={Text({tid: "submit"})}/><br />
+          <button id="submit" type="submit"><Text tid="submit" /></button>
           <p>{}</p>
         </form>
         <button id="loguserdata" onClick={() => console.log("userdata from click",userData)}>log userData</button>

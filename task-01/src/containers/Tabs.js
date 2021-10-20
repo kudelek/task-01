@@ -3,7 +3,7 @@ import './Tabs.css';
 
 function onClick(e, name){
     var tabContent, tabs;
-    tabContent = document.getElementsByClassName("tab-content"); 
+    tabContent = document.getElementsByClassName("tab-content");
 
     for(let i=0;i<tabContent.length;i++)     tabContent[i].style.display = "none";
 
@@ -31,7 +31,7 @@ export default function Tabs() {
     }
     return (
         <div className="tabs">
-            {Object.entries(tabList).map(([id, name]) => <Tab id={id} value={name} name={name} />)}
+            {Object.entries(tabList).map(([id, name]) => <Tab key={id} id={id} value={name} name={name} />)}
         </div>
     )
 }
