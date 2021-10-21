@@ -1,0 +1,10 @@
+{
+    "firstName": "Imię:",
+    "lastName": "Nazwisko:",
+    "birthDate": "Data urodzenia:",
+    "eyeColor": "Kolor oczu:",
+    "submit": "Wyślij",
+    "selectedlanguage": "Wybrano język: Polski",
+    "language": "Język: ",
+    "somecontent": "To jest jakaś zawartość. "
+}

@@ -1,0 +1,16 @@
+.navBar {
+    width: 100%;
+    padding: 0;
+    height: 10vh;
+    position: relative;
+    display: flex;
+    align-items: baseline;
+}
+
+.lang {
+    display: flex;
+    padding: 5px;
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+}
