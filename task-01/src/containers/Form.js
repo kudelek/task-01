@@ -1,7 +1,7 @@
 import React, { useState, useReducer, useEffect } from "react";
 import { Text } from "../libs/language";
 import { reducer } from "../libs/reducer";
-import { loadData } from "../libs/dataFlow";
+import { loadData, submitData } from "../libs/dataFlow";
 import './Form.css';
 
 export default function Form(props){
@@ -17,21 +17,8 @@ export default function Form(props){
     loadData(setIsLoading).then(d => dispatch({type: "setData", payload: d}));
   },[])
 
-
-
   function handleSubmit(ev){
-    ev.preventDefault();
-
-    const requestOptions = {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: Array(JSON.stringify(userData))
-    };
-    
-    fetch('http://localhost:3000/user/1', requestOptions)
-    .then(response => {
-      response.json();
-    });
+    submitData(ev, userData);
   }
 
   function handleChange(ev){
