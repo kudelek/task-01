@@ -8,7 +8,6 @@ export async function loadData(setIsLoading){
     .then(data => {
       if(data){
         let d = data[0];
-        //dispatch({type: "setData", payload: d});
         return d;
       }
     })
@@ -17,7 +16,6 @@ export async function loadData(setIsLoading){
     })
     .finally(() => {
       setIsLoading(false);
-      document.getElementById("form").click();
     });
     return response;
   }
