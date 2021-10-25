@@ -35,3 +35,32 @@ export async function submitData(e, userData){
   });
 
 }
+
+export async function submitContact(e, contactData){
+  e.preventDefault();
+
+  const requestOptions = {
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    body: Array(JSON.stringify(contactData))
+  };
+
+  fetch('http://localhost:3000/contact/content', requestOptions)
+  .then(response => {
+    response.json();
+  });
+}
+
+export async function deleteAllContactData(){
+
+  const requestOptions = {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    bode: null
+  }
+
+  fetch('http://localhost:3000/contact/1', requestOptions)
+  .then(response => {
+    response.json();
+  });
+}

@@ -1,0 +1,24 @@
+form {
+    min-width: 30%;
+    display: block;
+}
+
+input {
+    margin: 10px;
+}
+
+#contactName, #contactEmail {
+    width: 50%;
+    text-align: left;
+}
+
+#contactContent {
+    margin-top: 5vh;
+    height: 40vh;
+    min-width: 70vw;
+}
+
+#contactButton {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
