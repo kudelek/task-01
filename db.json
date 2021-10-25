@@ -8,5 +8,12 @@
       "eyeColor": "green"
     }
   ],
-  "contact": []
+  "contact": [
+    {
+      "name": "asdf",
+      "email": "asdf@mail.com",
+      "content": "Heyooooooooooo\nasdf\n\n\n\nwowowowoow",
+      "id": 1
+    }
+  ]
 }

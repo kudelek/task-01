@@ -15,7 +15,11 @@ input {
 #contactContent {
     margin-top: 5vh;
     height: 40vh;
-    min-width: 70vw;
+    width: 60vw;
+    min-height: 10vh;
+    max-height: 50vh;
+    min-width: 60vw;
+    max-width: 80vw;
 }
 
 #contactButton {
