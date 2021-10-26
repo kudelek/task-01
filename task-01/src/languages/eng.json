@@ -6,5 +6,6 @@
     "submit": "Submit",
     "selectedlanguage": "Selected language: English",
     "language": "Language: ",
-    "somecontent": "This is some content. "
+    "somecontent": "This is some content. ",
+    "deletecontactdata": "Delete contact details"
 }

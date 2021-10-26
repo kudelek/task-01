@@ -3,7 +3,7 @@ form {
     display: block;
 }
 
-input {
+#contactName, #contactEmail {
     margin: 10px;
 }
 

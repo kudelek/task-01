@@ -6,5 +6,6 @@
     "submit": "Senden",
     "selectedlanguage": "Ausgewählte Sprache: Deutsch",
     "language": "Sprache: ",
-    "somecontent": "Dies ist ein Inhalt "
+    "somecontent": "Dies ist ein Inhalt. ",
+    "deletecontactdata": "Kontaktdaten löschen"
 }

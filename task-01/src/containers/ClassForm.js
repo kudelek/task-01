@@ -42,7 +42,7 @@ export default class ClassForm extends Component {
                         <textarea type="text" id="contactContent" name="content" placeholder="What's on your mind?" onChange={this.onChange}/><br/>
                         <button id="contactButton" onClick={onsubmit}><Text tid="submit" /></button>
                     </form>
-                    <button id="deleteContactData" onClick={this.onDelete}>Delete contact data</button>
+                    <button id="deleteContactData" onClick={this.onDelete}><Text tid="deletecontactdata" /></button>
                 </div>
             </div>
         )
