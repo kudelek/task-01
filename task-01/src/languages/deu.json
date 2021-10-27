@@ -4,8 +4,11 @@
     "birthDate": "Geburtsdatum:",
     "eyeColor": "Augenfarbe:",
     "submit": "Senden",
-    "selectedlanguage": "Ausgewählte Sprache: Deutsch",
+    "selectedLanguage": "Ausgewählte Sprache: Deutsch",
     "language": "Sprache: ",
-    "somecontent": "Dies ist ein Inhalt. ",
-    "deletecontactdata": "Kontaktdaten löschen"
+    "someContent": "Dies ist ein Inhalt. ",
+    "deleteContactData": "Kontaktdaten löschen",
+    "contactName": "Deine Name",
+    "contactEmail": "Deine E-Mail-Adresse",
+    "contactContent": "Was haben Sie auf dem Herzen?"
 }

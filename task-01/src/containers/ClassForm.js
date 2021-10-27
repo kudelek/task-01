@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { deleteAllContactData, submitContact } from '../libs/dataFlow';
-import { Text } from '../libs/language';
+import { Text, Input, TextArea } from '../libs/language';
 import './ClassForm.css';
 
 export default class ClassForm extends Component {
@@ -15,17 +15,17 @@ export default class ClassForm extends Component {
         this.onDelete = this.onDelete.bind(this);
     }
 
+    componentDidUpdate(){
+        console.log("state: ", this.state.contactData);
+    }
+
     onSubmit(e) {
         e.preventDefault();
-        console.log(this.state.contactData);
         submitContact(e, this.state.contactData);
     }
 
     onChange(e) {
-        console.log(e);
         this.setState({contactData: {...this.state.contactData, [e.target.name]: e.target.value}});
-        const call = () => console.log("state", this.state);
-        call();
     }
 
     onDelete() {
@@ -37,12 +37,12 @@ export default class ClassForm extends Component {
             <div id={this.props.id} className={this.props.className}>
                 <div className="classForm">
                     <form onSubmit={this.onSubmit}>
-                        <input id="contactName" name="name" placeholder="Your name" onChange={this.onChange}/><br/>
-                        <input id="contactEmail" name="email" placeholder="Your e-mail address" onChange={this.onChange}/><br/>
-                        <textarea type="text" id="contactContent" name="content" placeholder="What's on your mind?" onChange={this.onChange}/><br/>
+                        <Input id="contactName" name="name" tid="contactName" onChange={this.onChange}/><br/>
+                        <Input id="contactEmail" name="email" tid="contactEmail" onChange={this.onChange}/><br/>
+                        <TextArea type="text" id="contactContent" name="content" tid="contactContent" onChange={this.onChange}/><br/>
                         <button id="contactButton" onClick={onsubmit}><Text tid="submit" /></button>
                     </form>
-                    <button id="deleteContactData" onClick={this.onDelete}><Text tid="deletecontactdata" /></button>
+                    <button id="deleteContactData" onClick={this.onDelete}><Text tid="deleteContactData" /></button>
                 </div>
             </div>
         )

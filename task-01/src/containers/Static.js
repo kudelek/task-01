@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from '../libs/language';
 
 function Static(props) {
-    const text = "somecontent";
+    const text = "someContent";
     const arr = [];
 
     for(let i=0;i<20;i++){
@@ -11,7 +11,7 @@ function Static(props) {
 
     return (
         <div {...props}>
-            <Text tid="selectedlanguage"/><br/><br/>
+            <Text tid="selectedLanguage"/><br/><br/>
             {Object.entries(arr).map(([id,text]) => <Text key={id} id={id} tid={text} />)}
         </div>
     )
