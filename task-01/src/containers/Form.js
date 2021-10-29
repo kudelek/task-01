@@ -30,7 +30,7 @@ export default function Form(props){
     dispatch(action);
   }
 
-  return ( isloading ? <div>Loading...</div> : (
+  return ( props.isactive ? (isloading ? <div>Loading...</div> : (
     <div {...props}>
       <div className="form">
         <form onSubmit={handleSubmit}>
@@ -54,7 +54,7 @@ export default function Form(props){
         <button id="loguserdata" onClick={() => console.log("userdata from click",userData)}>log userData</button>
       </div>
     </div>
-  ))
+  )) : null)
   
 
 

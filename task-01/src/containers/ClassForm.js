@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { deleteContactData as deleteContactData, submitContact } from '../libs/dataFlow';
+import { deleteContactData, submitContact } from '../libs/dataFlow';
 import { Text, Input, TextArea } from '../libs/language';
 import './ClassForm.css';
 
@@ -33,7 +33,7 @@ export default class ClassForm extends Component {
     }
 
     render() {
-        return (
+        return (this.props.isactive ? (
             <div id={this.props.id} className={this.props.className}>
                 <div className="classForm">
                     <form onSubmit={this.onSubmit}>
@@ -44,7 +44,7 @@ export default class ClassForm extends Component {
                     </form>
                     <button id="deleteContactData" onClick={this.onDelete}><Text tid="deleteContactData" /></button>
                 </div>
-            </div>
+            </div>) : null
         )
     }
 }
