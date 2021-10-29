@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Tabs.css';
 
-function onClick(name, setActive) {
-    setActive(name);
+function onClick(id, setActive) {
+    setActive(id);
 }
 
 function Tab(props) {
     return (
-        <div className={props.className} name={props.name} id={props.id} onClick={() => onClick(props.name, props.setActive)}>
+        <div className={props.className} id={props.id} onClick={() => onClick(props.id, props.setActive)}>
             {props.name}
         </div>
     )
