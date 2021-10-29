@@ -13,7 +13,7 @@ function App() {
       <ErrorBoundary>
         <LanguageProvider>
           <NavBar className="NavBar" activeTab={activeTab} setActiveTab={setActiveTab} />
-          <TabContent className="App-content" activetab={activeTab}/>
+          <TabContent className="App-content" activeTab={activeTab}/>
         </LanguageProvider>
       </ErrorBoundary>
     </div>

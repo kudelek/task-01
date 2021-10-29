@@ -6,10 +6,11 @@ import '../App.css'
 
 export default function TabContent(props) {
     return (
-        <div {...props}>
-            <Form isactive={props.activetab==="form" ? "true" : undefined}/>
-            <Static isactive={props.activetab==="static" ? "true" : undefined}/>
-            <ClassForm isactive={props.activetab==="classForm" ? "true" : undefined}/>
+        <div className={props.className}>
+            <Form isActive={props.activeTab==="form" ? "true" : undefined}/>
+            <Static isActive={props.activeTab==="static" ? "true" : undefined}/>
+            <ClassForm isActive={props.activeTab==="classForm" ? "true" : undefined}/>
+            
         </div>
     )
 }

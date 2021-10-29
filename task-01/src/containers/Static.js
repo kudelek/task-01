@@ -9,8 +9,8 @@ function Static(props) {
         arr.push(text);
     }
 
-    return ( props.isactive ? (
-        <div {...props}>
+    return ( props.isActive ? (
+        <div>
             <Text tid="selectedLanguage"/><br/><br/>
             {Object.entries(arr).map(([id,text]) => <Text key={id} id={id} tid={text} />)}
         </div>) : null

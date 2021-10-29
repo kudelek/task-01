@@ -4,12 +4,12 @@ import './Tabs.css';
 
 function Tab(props) {
 
-    function onClick(e) {
+    function handleClick(e) {
         props.setActiveTab(e.target.id);
     }
 
     return (
-        <div className={props.className} id={props.id} onClick={onClick}>
+        <div className={props.className} id={props.id} onClick={handleClick}>
             {props.id}
         </div>
     )

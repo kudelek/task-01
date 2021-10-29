@@ -30,8 +30,8 @@ export default function Form(props){
     dispatch(action);
   }
 
-  return ( props.isactive ? (isloading ? <div>Loading...</div> : (
-    <div {...props}>
+  return ( props.isActive ? (isloading ? <div>Loading...</div> : (
+    <div>
       <div className="form">
         <form onSubmit={handleSubmit}>
           <div className="fields">
@@ -42,10 +42,10 @@ export default function Form(props){
               <label><Text tid="eyeColor" /></label><br />
             </div>
             <div className="inputs">
-              <input type="text" id="firstName" defaultValue={userData.firstName} onChange={handleChange}/><br />
-              <input type="text" id="lastName" defaultValue={userData.lastName} onChange={handleChange}/><br />
-              <input type="text" id="birthDate" defaultValue={userData.birthDate} onChange={handleChange}/><br />
-              <input type="text" id="eyeColor" defaultValue={userData.eyeColor} onChange={handleChange}/><br />
+              <input aria-label="First Name" type="text" id="firstName" defaultValue={userData.firstName} onChange={handleChange}/><br />
+              <input aria-label="Last Name" type="text" id="lastName" defaultValue={userData.lastName} onChange={handleChange}/><br />
+              <input aria-label="Birth Date" type="text" id="birthDate" defaultValue={userData.birthDate} onChange={handleChange}/><br />
+              <input aria-label="Eye Color" type="text" id="eyeColor" defaultValue={userData.eyeColor} onChange={handleChange}/><br />
             </div>
           </div>
           <button id="submit" type="submit"><Text tid="submit" /></button>
