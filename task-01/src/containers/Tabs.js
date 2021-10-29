@@ -1,37 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Tabs.css';
 
-function onClick(e, name){
-    var tabContent, tabs;
-    tabContent = document.getElementsByClassName("tab-content");
-
-    for(let i=0;i<tabContent.length;i++)     tabContent[i].style.display = "none";
-
-    tabs = document.getElementsByClassName("tab");
-
-    for(let i=0;i<tabs.length;i++)    tabs[i].className = tabs[i].className.replace(" active","");
-
-    document.getElementById(name+"-content").style.display = "block";
-    e.currentTarget.className += " active";
+function onClick(name, setActive) {
+    setActive(name);
 }
 
 function Tab(props) {
     return (
-        <div className="tab" name={props.name} id={props.id} onClick={(e) => onClick(e, props.name)}>
+        <div className={props.className} name={props.name} id={props.id} onClick={() => onClick(props.name, props.setActive)}>
             {props.name}
         </div>
     )
 }
 
-export default function Tabs() {
+export default function Tabs(props) {
+    const [active, setActive] = useState("form");
+    const [className, setClassName] = useState({ form: "tab active", static: "tab", classForm: "tab" });
+    const setTabContentClassName = props.setTabContentClassName;
+
+    useEffect(() => {
+        switch (active) {
+            case "form":
+                setClassName({ form: "tab active", static: "tab", classForm: "tab" });
+                setTabContentClassName({ form: "tab-content active", static: "tab-content", classForm: "tab-content" });
+                break;
+            case "static":
+                setClassName({ form: "tab", static: "tab active", classForm: "tab" });
+                setTabContentClassName({ form: "tab-content", static: "tab-content active", classForm: "tab-content" });
+                break;
+            case "classForm":
+                setClassName({ form: "tab", static: "tab", classForm: "tab active" });
+                setTabContentClassName({ form: "tab-content", static: "tab-content", classForm: "tab-content active" });
+                break;
+            default:
+                setClassName({ form: "tab active", static: "tab", classForm: "tab" });
+                setTabContentClassName({ form: "tab-content active", static: "tab-content", classForm: "tab-content" });
+        }
+    }, [active, setTabContentClassName])
 
     const tabList = {
-        form: "form",
-        static: "static"
+        form: { name: "form", className: "tab active" },
+        static: { name: "static", className: "tab" },
+        classForm: { name: "classForm", className: "tab" }
     }
+
     return (
         <div className="tabs">
-            {Object.entries(tabList).map(([id, name]) => <Tab key={id} id={id} value={name} name={name} />)}
+            {Object.entries(tabList).map(([id, obj]) => <Tab key={id} className={className[id]} id={id} name={obj.name} setActive={setActive} />)}
         </div>
     )
 }

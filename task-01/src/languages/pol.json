@@ -4,7 +4,11 @@
     "birthDate": "Data urodzenia:",
     "eyeColor": "Kolor oczu:",
     "submit": "Wyślij",
-    "selectedlanguage": "Wybrano język: Polski",
+    "selectedLanguage": "Wybrano język: Polski",
     "language": "Język: ",
-    "somecontent": "To jest jakaś zawartość. "
+    "someContent": "To jest jakaś zawartość. ",
+    "deleteContactData": "Usuń dane kontaktowe",
+    "contactName": "Twoje imię",
+    "contactEmail": "Twój adres e-mail",
+    "contactContent": "Co Cię sprowadza?"
 }

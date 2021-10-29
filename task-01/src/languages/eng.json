@@ -4,7 +4,11 @@
     "birthDate": "Birth Date:",
     "eyeColor": "Eye Color:",
     "submit": "Submit",
-    "selectedlanguage": "Selected language: English",
+    "selectedLanguage": "Selected language: English",
     "language": "Language: ",
-    "somecontent": "This is some content. "
+    "someContent": "This is some content. ",
+    "deleteContactData": "Delete contact details",
+    "contactName": "Your name",
+    "contactEmail": "Your e-mail address",
+    "contactContent": "What's on your mind?"
 }

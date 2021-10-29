@@ -7,5 +7,10 @@
       "birthDate": "01.05.1996",
       "eyeColor": "green"
     }
+  ],
+  "contact": [
+    {
+      "id": 1
+    }
   ]
 }
