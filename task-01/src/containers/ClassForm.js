@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { deleteAllContactData, submitContact } from '../libs/dataFlow';
+import { deleteContactData as deleteContactData, submitContact } from '../libs/dataFlow';
 import { Text, Input, TextArea } from '../libs/language';
 import './ClassForm.css';
 
@@ -8,7 +8,7 @@ export default class ClassForm extends Component {
         super(props);
         this.state = {
             contactData: { name: "", email: "", content: "" },
-            isLoading: true
+            isLoading: false
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -29,7 +29,7 @@ export default class ClassForm extends Component {
     }
 
     onDelete() {
-        deleteAllContactData();
+        deleteContactData();
     }
 
     render() {

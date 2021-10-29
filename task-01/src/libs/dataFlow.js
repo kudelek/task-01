@@ -31,7 +31,7 @@ export async function submitData(e, userData){
   
   fetch('http://localhost:3000/user/1', requestOptions)
   .then(response => {
-    response.json();
+    return response.json();
   });
 
 }
@@ -47,11 +47,11 @@ export async function submitContact(e, contactData){
 
   fetch('http://localhost:3000/contact/1', requestOptions)
   .then(response => {
-    response.json();
+    return response.json();
   });
 }
 
-export async function deleteAllContactData(){
+export async function deleteContactData(){
 
   const requestOptions = {
     method: 'PUT',
@@ -61,6 +61,6 @@ export async function deleteAllContactData(){
 
   fetch('http://localhost:3000/contact/1', requestOptions)
   .then(response => {
-    response.json();
+    return response.json();
   });
 }
