@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { LanguageProvider } from './libs/language';
 import './App.css';
 import ErrorBoundary from './components/ErrorBoundary';
