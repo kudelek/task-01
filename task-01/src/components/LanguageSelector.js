@@ -13,6 +13,7 @@ export default function LanguageSelector(props){
         <div {...props}>
             <div className="langtext"><Text tid="language"/></div>
             <select
+                aria-label="Language Selector"
                 onChange={handleLanguageChange}
                 value={userLanguage}
                 >
