@@ -8,7 +8,7 @@ export function editUser(e, userData, userID) {
     return fetchAPI("PUT", url, userData);
 }
 
-export async function loadUser(){
+export async function loadUser() {
     const url = baseUrl;
     return fetchAPI("GET", url);
 }

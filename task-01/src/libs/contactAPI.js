@@ -9,6 +9,6 @@ export function setContactData(contactData, userID) {
 }
 
 export function deleteContactData(userID) {
-    const url=`${baseUrl}/${userID}`;
-    return fetchAPI("PUT", url, {id: userID})
+    const url = `${baseUrl}/${userID}`;
+    return fetchAPI("PUT", url, { id: userID })
 }

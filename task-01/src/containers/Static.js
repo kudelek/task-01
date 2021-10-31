@@ -5,14 +5,14 @@ function Static(props) {
     const text = "someContent";
     const arr = [];
 
-    for(let i=0;i<20;i++){
+    for (let i = 0; i < 20; i++) {
         arr.push(text);
     }
 
-    return ( props.isActive ? (
+    return (props.isActive ? (
         <div>
-            <Text tid="selectedLanguage"/><br/><br/>
-            {Object.entries(arr).map(([id,text]) => <Text key={id} id={id} tid={text} />)}
+            <Text tid="selectedLanguage" /><br /><br />
+            {Object.entries(arr).map(([id, text]) => <Text key={id} id={id} tid={text} />)}
         </div>) : null
     )
 }

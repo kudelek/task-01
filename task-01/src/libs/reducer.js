@@ -1,7 +1,7 @@
-export function reducer(state, action){
+export function reducer(state, action) {
     switch (action.type) {
         case "fieldChange": {
-            const newState = {...state, [String(action.payload.name)]: String(action.payload.value)}
+            const newState = { ...state, [String(action.payload.name)]: String(action.payload.value) }
             return newState;
         }
 
@@ -9,7 +9,7 @@ export function reducer(state, action){
             const newState = action.payload;
             return newState;
         }
-        
+
         default: {
             return state;
         }
