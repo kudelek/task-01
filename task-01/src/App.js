@@ -7,13 +7,13 @@ import TabContent from './containers/TabContent';
 
 function App() {
   const [activeTab, setActiveTab] = useState("form");
-  
+
   return (
     <div className="App">
       <ErrorBoundary>
         <LanguageProvider>
           <NavBar className="NavBar" activeTab={activeTab} setActiveTab={setActiveTab} />
-          <TabContent className="App-content" activeTab={activeTab}/>
+          <TabContent className="App-content" activeTab={activeTab} />
         </LanguageProvider>
       </ErrorBoundary>
     </div>

@@ -6,7 +6,7 @@ export const LanguageContext = createContext({
     dictionary: dictionaryList.eng
 });
 
-export function LanguageProvider({children}){
+export function LanguageProvider({ children }) {
     const [userLanguage, setUserLanguage] = useState("eng")
 
     const provider = {
@@ -25,17 +25,17 @@ export function LanguageProvider({children}){
     );
 };
 
-export function Text({tid}) {
+export function Text({ tid }) {
     const languageContext = useContext(LanguageContext);
     return languageContext.dictionary[tid] || tid;
 };
 
-export function Input(props){
+export function Input(props) {
     const languageContext = useContext(LanguageContext);
     return <input id={props.id} name={props.name} placeholder={languageContext.dictionary[props.tid] || props.tid} onChange={props.onChange} />
 }
 
-export function TextArea(props){
+export function TextArea(props) {
     const languageContext = useContext(LanguageContext);
     return <textarea type={props.type} id={props.id} name={props.name} placeholder={languageContext.dictionary[props.tid] || props.tid} onChange={props.onChange} />
 }

@@ -15,8 +15,8 @@ export default function Form(props) {
 
   useEffect(() => {
     loadUser()
-    .then(d => { dispatch({type: "setData", payload: d})})
-    .finally(setIsLoading(false));
+      .then(d => { dispatch({ type: "setData", payload: d }) })
+      .finally(setIsLoading(false));
   }, [])
 
   function handleSubmit(e) {
