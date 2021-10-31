@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { deleteContactData, submitContact } from '../libs/dataFlow';
+import { setContactData, deleteContactData } from '../libs/contactAPI';
 import { Text, Input, TextArea } from '../libs/language';
 import './ClassForm.css';
 
@@ -17,7 +17,7 @@ export default class ClassForm extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        submitContact(e, this.state.contactData);
+        setContactData(this.state.contactData, 1);
     }
 
     onChange(e) {
@@ -25,7 +25,7 @@ export default class ClassForm extends Component {
     }
 
     onDelete() {
-        deleteContactData();
+        deleteContactData(1);
     }
 
     render() {
